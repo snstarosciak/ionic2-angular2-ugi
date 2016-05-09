@@ -1,0 +1,25 @@
+<ion-navbar *navbar>
+  <ion-toolbar>
+    <ion-searchbar primary
+                   [(ngModel)]="queryText"
+                   (input)="searchFeeds()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+  <ion-buttons end>
+    <button (click)="close()">
+      <ion-icon name="ios-close"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="search">
+  <ion-list>
+  <ion-item (click)="goToFeed(feed)" *ngFor="#feed of feeds">
+    <ion-thumbnail item-left [hidden]="feed.Pic === ''">
+      <img src="{{feed.Pic}}">
+    </ion-thumbnail>
+    <h2>{{feed.Key}}</h2>
+  </ion-item>
+</ion-list>
+</ion-content>

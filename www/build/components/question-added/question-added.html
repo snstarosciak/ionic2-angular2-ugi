@@ -1,0 +1,31 @@
+<div class="question-asked">
+  <div class="post-type">
+    <span class="topic-btn" tappable (click)="goToFeedTopic(post)">
+      <div class="topic-img" style="background:url('img/clash_royale.jpg') no-repeat;"></div>
+      <span class="post-type-text-block">
+        {{topicName}}&middot;
+        <span class="post-type-text">Question asked</span> &middot;
+        11h ago
+      </span>
+    </span>
+  </div>
+
+  <ion-card-header tappable (click)="goToPost(post)">
+    <span [innerHtml]="title"></span>
+  </ion-card-header>
+
+  <ion-item class="action-buttons">
+    <button (click)="showAnswerModal()" primary clear item-left>
+      <ion-icon name="md-create"></ion-icon>
+      <div>Answer</div>
+    </button>
+    <button primary clear item-left>
+      <ion-icon name="md-fastforward"></ion-icon>
+      <div>Pass</div>
+    </button>
+    <button primary clear item-left>
+      <ion-icon name="md-add"></ion-icon>
+      <div>Follow</div>
+    </button>
+  </ion-item>
+</div>

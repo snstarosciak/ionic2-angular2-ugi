@@ -1,0 +1,44 @@
+<!--
+  Generated template for the PostDetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar>
+  <ion-title>Post Added</ion-title>
+   <ion-buttons end>
+    <button (click)="showCommentModal()">
+      <ion-icon name="ios-create-outline"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="post-detail">
+  <ion-card class="post-card">
+    <div class="post-topic">
+      <span class="topic-btn">
+        <div class="topic-img" style="background:url('img/clash_royale.jpg') no-repeat;"></div>
+          {{topicName}}
+      </span>
+    </div>
+    <h4 [innerHtml]="post.title"></h4>
+    <ion-item class="mini-user-profile">
+      <ion-avatar item-left>
+        <img src="img/mark.jpeg">
+      </ion-avatar>
+      <h2>{{post.userName}}</h2>
+    </ion-item>
+    <p [innerHtml]="post.content"></p>
+  </ion-card>
+
+  <ion-card [hidden]="post.commentCount === 0"  class="post-card">
+    <div class="comments-block-header">{{commentGrammar}}</div>
+    <ion-item class="mini-user-profile" *ngFor="#comment of comments">
+      <ion-avatar item-left>
+        <img src="img/mark.jpeg">
+      </ion-avatar>
+      <h2>{{comment.user.firstName}} {{comment.user.lastName}}</h2>
+      <p [innerHTML]="comment.tcomment"></p>
+    </ion-item>
+  </ion-card>
+</ion-content>

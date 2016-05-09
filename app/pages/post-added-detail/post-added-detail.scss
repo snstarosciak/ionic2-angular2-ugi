@@ -1,0 +1,63 @@
+.post-detail {
+  background:color($colors, contentBg) !important;
+
+  h4  {
+    font-weight:bold;
+    padding:15px 15px 15px 0;
+    font-size:20px;
+    color:color($colors, secondary);
+  }
+
+  .post-topic {
+    font-size:12px;
+    color:color($colors, soften);
+
+    .topic-img {
+      width:25px;
+      height:25px;
+      float:left;
+      display:inline-block;
+      background-size:cover !important;
+      border-radius:15px;
+      margin-right:5px;
+    }
+
+    .topic-btn {
+      line-height:25px;
+    }
+  }
+
+  .mini-user-profile {
+    padding:0;
+
+    h2 {
+      color:color($colors, secondary);
+    }
+
+    .item-inner {
+      border:0;
+    }
+  }
+
+  .comments-block-header {
+    padding-bottom:15px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:color($colors, secondary);
+    font-size:12px;
+  }
+
+  ion-list .item-inner {
+    border-bottom:0;
+  }
+
+  ion-card.post-card {
+    width:100%;
+    margin:10px 0;
+    padding:15px;
+    box-shadow:none;
+    border-bottom:1px solid #CECECE;
+  }
+}
+
+

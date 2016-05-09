@@ -1,0 +1,50 @@
+<ion-navbar *navbar class="hide-border">
+
+  <ion-segment [(ngModel)]="contentFilter" (change)="updateContentFilter()">
+    <ion-segment-button value="all">
+      Feed
+    </ion-segment-button>
+    <ion-segment-button value="trending">
+      Trending
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-navbar>
+
+<ion-toolbar>
+  <ion-searchbar data-tap-disabled="true" [disabled]="disabled" (click)="showSearchModal()" primary
+                 placeholder="Search">
+  </ion-searchbar>
+</ion-toolbar>
+
+<!-- Feed -->
+<ion-content class="main-feed">
+  <ion-list [hidden]="chosenFilter !== 'all'">
+    <ion-card class="post-card" *ngFor="#post of posts">
+
+      <!-- Post Added -->
+      <post-added *ngIf="post.vfeedtype === 1" [post]="post"></post-added>
+
+      <!-- Question Added -->
+      <question-added *ngIf="post.vfeedtype === 2" [post]="post"></question-added>
+
+      <!-- Answer Added -->
+      <answer-added *ngIf="post.vfeedtype === 3" [post]="post"></answer-added>
+    </ion-card>
+  </ion-list>
+
+  <ion-list [hidden]="chosenFilter !== 'trending'">
+
+        <ion-card (click)="goToTopic(topic)" *ngFor="#topic of trendingTopics">
+          <ion-item class="mini-user-profile">
+            <ion-avatar item-left>
+              <img src="{{topic.topicpic}}">
+            </ion-avatar>
+            <h2>{{topic.vtopic}}</h2>
+          </ion-item>
+        </ion-card>
+
+  </ion-list>
+
+
+</ion-content>
